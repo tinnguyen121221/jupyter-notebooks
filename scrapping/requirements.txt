@@ -1,0 +1,4 @@
+lxml
+selenium
+undetected-chromedriver
+selenium-wire
