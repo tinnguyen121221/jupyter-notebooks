@@ -6,7 +6,7 @@ Jupyter Notebooks using [Jupyter Docker Stacks](https://jupyter-docker-stacks.re
 
 Add, remove packages in `requirements.txt` as your need.
 
-```
+```shell
 docker build -t notebook-basic ./basic
 docker build -t notebook-scrapping ./scrapping
 ```
@@ -15,10 +15,11 @@ docker build -t notebook-scrapping ./scrapping
 
 Customize your notes volume and docker container name, port.
 
-```sh
+```shell
+mkdir -p ~/notes
 docker run\
     -it --rm --user root\
-    -d -p 9000:8888 
+    -d -p 9000:8888\
     -v ~/notes:/home/jovyan/work/\
     --name notebook\
     -t notebook-basic\
@@ -26,4 +27,10 @@ docker run\
     --NotebookApp.token=''\
     --NotebookApp.notebook_dir=/home/jovyan/work
 
+```
+
+If can not open new notebook (File Permission), run following command
+
+```shell
+sudo chown -R $USER:$USER <notes-volume>
 ```
