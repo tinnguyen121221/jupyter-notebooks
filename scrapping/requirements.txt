@@ -2,3 +2,5 @@ lxml
 selenium
 undetected-chromedriver
 selenium-wire
+aiohttp
+aiofiles
